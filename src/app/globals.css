@@ -4,14 +4,16 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 255 255;
-  --foreground: 15 23 42;
+  /* Peru theme */
+  --peru-red: 220 38 38;   /* red-600 */
+  --peru-gold: 202 138 4; /* amber-600 */
+  --peru-white: 255 255 255;
 
-  --primary: 220 38 38; /* Peru red */
-  --primary-foreground: 255 255 255;
+  --primary: var(--peru-red);
+  --primary-foreground: var(--peru-white);
 
-  --secondary: 241 245 249;
-  --secondary-foreground: 15 23 42;
+  --accent: var(--peru-gold);
+  --accent-foreground: 0 0 0;
 }
 
 body {
