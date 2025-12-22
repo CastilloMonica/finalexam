@@ -4,7 +4,10 @@ import Menu from "@/components/Menu"
 
 export const metadata: Metadata = {
   title: "El Chepenano",
-  description: "Final Exam Project",
+  description: "Final Exam Project - Peruvian Food Truck & Payroll System",
+  icons: {
+    icon: "/favicon.svg",
+  },
 }
 
 export default function RootLayout({
