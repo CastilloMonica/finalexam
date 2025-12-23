@@ -2,21 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================
+   LIGHT THEME (DEFAULT)
+   ========================= */
 :root {
-  --background: 43 100% 94%; /* #FFF5E1 */
-  --foreground: 14 38% 18%; /* dark brown */
+  /* Backgrounds */
+  --background: 0 0% 100%;          /* white */
+  --foreground: 14 25% 15%;         /* dark brown */
 
-  --primary: 0 68% 41%; /* #B22222 */
+  /* Brand */
+  --primary: 0 72% 45%;              /* red */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 45 100% 70%; /* #FFD166 */
-  --secondary-foreground: 14 38% 18%;
+  --secondary: 45 100% 60%;          /* yellow */
+  --secondary-foreground: 14 25% 15%;
 
-  --card: 36 100% 88%; /* light terracotta */
-  --border: 0 0% 85%;
-  --radius: 1rem;
+  /* UI */
+  --card: 43 100% 97%;
+  --muted: 43 30% 92%;
+  --muted-foreground: 14 15% 35%;
+
+  --border: 0 0% 88%;
+  --ring: 0 72% 45%;
+
+  --radius: 0.75rem;
 }
 
+/* =========================
+   DARK THEME
+   ========================= */
+.dark {
+  --background: 14 25% 8%;           /* deep brown */
+  --foreground: 0 0% 98%;            /* near white */
+
+  --primary: 0 72% 55%;              /* brighter red */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 45 100% 55%;           /* golden yellow */
+  --secondary-foreground: 14 25% 10%;
+
+  --card: 14 25% 12%;
+  --muted: 14 15% 18%;
+  --muted-foreground: 0 0% 70%;
+
+  --border: 14 15% 25%;
+  --ring: 45 100% 55%;
+}
+
+/* =========================
+   BASE STYLES
+   ========================= */
 body {
-  @apply bg-background text-foreground font-sans;
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+h1, h2, h3, h4 {
+  @apply font-bold tracking-tight;
+}
+
+p {
+  @apply text-muted-foreground leading-relaxed;
+}
+
+/* =========================
+   BUTTON POLISH (OPTIONAL)
+   ========================= */
+.btn-primary {
+  @apply bg-primary text-primary-foreground
+         hover:opacity-90 transition rounded-lg;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground
+         hover:opacity-90 transition rounded-lg;
+}
+
+/* =========================
+   CARD POLISH
+   ========================= */
+.card {
+  @apply bg-card border border-border rounded-xl shadow-sm;
+}
+
+/* =========================
+   BRAND DETAIL
+   ========================= */
+::selection {
+  background-color: hsl(var(--primary));
+  color: white;
 }
