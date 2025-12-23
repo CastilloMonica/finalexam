@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -66,6 +68,7 @@ export default function Menu() {
             <Link
               href="https://exam-1-three.vercel.app/"
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 text-lg font-medium text-primary"
             >
               <ExternalLink />
@@ -75,6 +78,7 @@ export default function Menu() {
             <Link
               href="https://github.com/CastilloMonica/Exam-1"
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 text-lg font-medium text-primary"
             >
               <Github />

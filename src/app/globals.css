@@ -2,43 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================
+/* =========================================
    LIGHT THEME (DEFAULT)
-   ========================= */
+   ========================================= */
 :root {
-  /* Backgrounds */
+  /* Base colors */
   --background: 0 0% 100%;          /* white */
   --foreground: 14 25% 15%;         /* dark brown */
 
-  /* Brand */
+  /* Brand colors */
   --primary: 0 72% 45%;              /* red */
-  --primary-foreground: 0 0% 100%;
+  --primary-foreground: 0 0% 100%;   /* white */
 
   --secondary: 45 100% 60%;          /* yellow */
   --secondary-foreground: 14 25% 15%;
 
-  /* UI */
+  /* UI surfaces */
   --card: 43 100% 97%;
   --muted: 43 30% 92%;
   --muted-foreground: 14 15% 35%;
 
+  /* Borders & focus */
   --border: 0 0% 88%;
   --ring: 0 72% 45%;
 
+  /* Radius */
   --radius: 0.75rem;
 }
 
-/* =========================
+/* =========================================
    DARK THEME
-   ========================= */
+   ========================================= */
 .dark {
-  --background: 14 25% 8%;           /* deep brown */
-  --foreground: 0 0% 98%;            /* near white */
+  --background: 14 25% 8%;
+  --foreground: 0 0% 98%;
 
-  --primary: 0 72% 55%;              /* brighter red */
+  --primary: 0 72% 55%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 45 100% 55%;           /* golden yellow */
+  --secondary: 45 100% 55%;
   --secondary-foreground: 14 25% 10%;
 
   --card: 14 25% 12%;
@@ -49,27 +51,27 @@
   --ring: 45 100% 55%;
 }
 
-/* =========================
+/* =========================================
    BASE STYLES
-   ========================= */
+   ========================================= */
 body {
   @apply bg-background text-foreground font-sans antialiased;
 }
 
-/* =========================
+/* =========================================
    TYPOGRAPHY
-   ========================= */
+   ========================================= */
 h1, h2, h3, h4 {
-  @apply font-bold tracking-tight;
+  @apply font-bold tracking-tight text-foreground;
 }
 
 p {
-  @apply text-muted-foreground leading-relaxed;
+  @apply leading-relaxed text-muted-foreground;
 }
 
-/* =========================
-   BUTTON POLISH (OPTIONAL)
-   ========================= */
+/* =========================================
+   BUTTON STYLES (OPTIONAL HELPERS)
+   ========================================= */
 .btn-primary {
   @apply bg-primary text-primary-foreground
          hover:opacity-90 transition rounded-lg;
@@ -80,16 +82,16 @@ p {
          hover:opacity-90 transition rounded-lg;
 }
 
-/* =========================
-   CARD POLISH
-   ========================= */
+/* =========================================
+   CARD STYLE
+   ========================================= */
 .card {
   @apply bg-card border border-border rounded-xl shadow-sm;
 }
 
-/* =========================
+/* =========================================
    BRAND DETAIL
-   ========================= */
+   ========================================= */
 ::selection {
   background-color: hsl(var(--primary));
   color: white;

@@ -1,5 +1,11 @@
 import "./globals.css"
 import Menu from "@/components/Menu"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "El Chepenano | Final Exam",
+  description: "El Chepenano Peruvian Food Truck – Final Exam Project",
+}
 
 export default function RootLayout({
   children,
@@ -8,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-background text-foreground">
+      <body className="bg-background text-foreground antialiased">
         {/* HEADER */}
         <header className="w-full border-b border-border bg-white">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -36,4 +42,3 @@ export default function RootLayout({
     </html>
   )
 }
-
