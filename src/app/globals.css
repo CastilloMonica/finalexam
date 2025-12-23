@@ -1,91 +1,22 @@
-/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ======================================================
-   🇵🇪 PERUVIAN THEME — TAILWIND 4 + SHADCN COMPATIBLE
-   ====================================================== */
-
 :root {
-  /* --- Peru brand colors --- */
-  --peru-red: 220 38 38;     /* red-600 */
-  --peru-gold: 202 138 4;   /* amber-600 */
-  --peru-white: 255 255 255;
+  --background: 43 100% 94%; /* #FFF5E1 */
+  --foreground: 14 38% 18%; /* dark brown */
 
-  /* --- Base UI colors --- */
-  --background: 255 255 255;
-  --foreground: 15 23 42;   /* slate-900 */
+  --primary: 0 68% 41%; /* #B22222 */
+  --primary-foreground: 0 0% 100%;
 
-  --card: 255 255 255;
-  --card-foreground: 15 23 42;
+  --secondary: 45 100% 70%; /* #FFD166 */
+  --secondary-foreground: 14 38% 18%;
 
-  --popover: 255 255 255;
-  --popover-foreground: 15 23 42;
-
-  --border: 226 232 240;    /* slate-200 */
-  --input: 226 232 240;
-
-  /* --- Brand mapping --- */
-  --primary: var(--peru-red);
-  --primary-foreground: var(--peru-white);
-
-  --secondary: 248 250 252; /* slate-50 */
-  --secondary-foreground: 15 23 42;
-
-  --accent: var(--peru-gold);
-  --accent-foreground: 0 0 0;
-
-  --muted: 241 245 249;     /* slate-100 */
-  --muted-foreground: 100 116 139; /* slate-500 */
-
-  --destructive: 185 28 28; /* red-700 */
-  --destructive-foreground: 255 255 255;
-
-  --ring: var(--peru-red);
-  --radius: 0.75rem;
+  --card: 36 100% 88%; /* light terracotta */
+  --border: 0 0% 85%;
+  --radius: 1rem;
 }
-
-/* ======================================================
-   GLOBAL BASE STYLES
-   ====================================================== */
 
 body {
-  background-color: rgb(var(--background));
-  color: rgb(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
-}
-
-/* ======================================================
-   🇵🇪 SUBTLE ANDEAN-INSPIRED BACKGROUND PATTERN
-   ====================================================== */
-
-.bg-peru-pattern {
-  background-color: rgb(var(--background));
-  background-image:
-    linear-gradient(
-      45deg,
-      rgba(220, 38, 38, 0.035) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(220, 38, 38, 0.035) 50%,
-      rgba(220, 38, 38, 0.035) 75%,
-      transparent 75%,
-      transparent
-    );
-  background-size: 24px 24px;
-}
-
-/* ======================================================
-   OPTIONAL PERU ACCENT UTILITIES
-   ====================================================== */
-
-/* Top accent bar (great for Menu/Nav) */
-.peru-accent-bar {
-  border-top: 4px solid rgb(var(--primary));
-}
-
-/* Gold highlight text */
-.text-peru-gold {
-  color: rgb(var(--accent));
+  @apply bg-background text-foreground font-sans;
 }

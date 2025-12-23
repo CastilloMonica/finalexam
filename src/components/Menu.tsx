@@ -1,24 +1,23 @@
-
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, Truck } from "lucide-react"
 
 export default function Menu() {
   return (
-    <nav className="peru-accent-bar">
-      <Link href="https://exam-1-three.vercel.app/" target="_blank">
-        <Button variant="outline">
-          <ExternalLink className="mr-2 h-4 w-4" />
-          EXAM 1
-        </Button>
-      </Link>
+    <nav className="flex items-center gap-4">
+      <Truck className="text-primary" />
 
-      <Link href="https://github.com/CastilloMonica/Exam-1" target="_blank">
-        <Button variant="outline">
-          <Github className="mr-2 h-4 w-4" />
-          GIT 1
-        </Button>
-      </Link>
+      <Button variant="ghost" asChild>
+        <Link href="https://exam-1-three.vercel.app/" target="_blank">
+          <ExternalLink /> EXAM 1
+        </Link>
+      </Button>
+
+      <Button variant="ghost" asChild>
+        <Link href="https://github.com/CastilloMonica/Exam-1" target="_blank">
+          <Github /> GIT 1
+        </Link>
+      </Button>
     </nav>
   )
 }

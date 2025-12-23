@@ -1,192 +1,72 @@
-"use client"
-
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Truck,
-  Calculator,
-  Utensils,
-  MapPin,
-  Github,
-  ExternalLink,
-} from "lucide-react"
+import { UtensilsCrossed } from "lucide-react"
+import Image from "next/image"
 
 export default function HomePage() {
-  const [hours, setHours] = useState("")
-  const [rate, setRate] = useState("")
-  const [netPay, setNetPay] = useState<number | null>(null)
-
-  const calculatePayroll = () => {
-    const h = parseFloat(hours)
-    const r = parseFloat(rate)
-
-    if (isNaN(h) || isNaN(r)) return
-
-    const gross = h * r
-    const tax = gross * 0.1
-    const net = gross - tax
-
-    setNetPay(net)
-  }
-
   return (
-    <main className="bg-peru-pattern space-y-20 p-8">
+    <main className="flex flex-col items-center text-center px-6 py-16 gap-20">
 
       {/* HERO */}
-      <section className="text-center space-y-6">
+      <section className="space-y-6">
         <h1 className="text-5xl font-extrabold text-primary">
           El Chepenano
         </h1>
 
-        <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-          El Chepenano is a Peruvian food truck project transformed into a
-          modern Next.js application for my final exam.
+        <p className="max-w-2xl text-lg">
+          El Chepenano was born from a family dream to bring authentic
+          Peruvian street food to New York City — inspired by tradition,
+          bold flavors, and community.
         </p>
 
-        <div className="flex justify-center gap-4">
-          <Button>
-            <Truck className="mr-2 h-4 w-4" />
-            Food Truck Project
-          </Button>
-
-          <Button variant="secondary">
-            <Calculator className="mr-2 h-4 w-4 text-accent" />
-            Payroll Application
-          </Button>
-        </div>
+        <Button size="lg" className="gap-2">
+          <UtensilsCrossed />
+          Order Now
+        </Button>
       </section>
 
-      {/* FEATURES */}
-      <section className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <Utensils className="h-8 w-8 text-primary" />
-            <h3 className="text-xl font-semibold">Peruvian Cuisine</h3>
-            <p className="text-sm text-muted-foreground">
-              Inspired by traditional Peruvian flavors and street food culture.
-            </p>
-          </CardContent>
-        </Card>
+      {/* IMAGE + STORY */}
+      <section className="max-w-5xl flex flex-col items-center gap-8">
+        <Image
+          src="/el-chepenano-truck.png"
+          alt="El Chepenano Peruvian Food Truck and happy customers"
+          width={900}
+          height={600}
+          priority
+          className="rounded-2xl shadow-xl"
+        />
 
-        <Card className="border-accent">
-          <CardContent className="p-6 space-y-4">
-            <Calculator className="h-8 w-8 text-accent" />
-            <h3 className="text-xl font-semibold">Payroll System</h3>
-            <p className="text-sm text-muted-foreground">
-              A real payroll calculator for a small food truck business.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <MapPin className="h-8 w-8 text-primary" />
-            <h3 className="text-xl font-semibold">Community Focus</h3>
-            <p className="text-sm text-muted-foreground">
-              Supporting immigrant-owned businesses through technology.
-            </p>
-          </CardContent>
-        </Card>
+        <p className="max-w-3xl text-lg leading-relaxed">
+          <strong>El Chepenano</strong> represents more than a food truck —
+          it is a celebration of Peruvian culture, family recipes, and the
+          joy of sharing food. Our mission is to serve authentic Peruvian
+          street food made with fresh ingredients, traditional spices,
+          and love, bringing people together one plate at a time.
+        </p>
       </section>
 
-      {/* PAYROLL CALCULATOR */}
-      <section className="max-w-xl mx-auto">
-        <Card className="border-accent">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-primary">
-              <Calculator className="h-5 w-5 text-accent" />
-              Payroll Calculator
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="space-y-6">
-            <div className="space-y-2">
-              <Label>Hours Worked</Label>
-              <Input
-                type="number"
-                placeholder="e.g. 40"
-                value={hours}
-                onChange={(e) => setHours(e.target.value)}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label>Hourly Rate ($)</Label>
-              <Input
-                type="number"
-                placeholder="e.g. 20"
-                value={rate}
-                onChange={(e) => setRate(e.target.value)}
-              />
-            </div>
-
-            <Button
-              className="w-full"
-              onClick={calculatePayroll}
-            >
-              Calculate Payroll
-            </Button>
-
-            {netPay !== null && (
-              <div className="rounded-lg bg-muted p-4 text-center">
-                <p className="text-sm text-muted-foreground">
-                  Estimated Net Pay
-                </p>
-                <p className="text-2xl font-bold text-primary">
-                  ${netPay.toFixed(2)}
-                </p>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </section>
-
-      {/* FINAL LINKS */}
-      <section className="max-w-4xl mx-auto text-center space-y-6">
+      {/* WHY PERUVIAN FOOD */}
+      <section className="max-w-3xl space-y-4">
         <h2 className="text-3xl font-bold text-primary">
-          Final Exam Project
+          Why Choose Peruvian Food?
         </h2>
 
-        <div className="flex justify-center gap-4">
-          <Button variant="outline" asChild>
-            <a
-              href="https://github.com/CastilloMonica/Exam-1"
-              target="_blank"
-            >
-              <Github className="mr-2 h-4 w-4 text-primary" />
-              GitHub Repository
-            </a>
-          </Button>
-
-          <Button asChild>
-            <a
-              href="https://monicacastillo.info"
-              target="_blank"
-            >
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Live Final Project
-            </a>
-          </Button>
-        </div>
+        <p>
+          Peruvian cuisine is considered one of the most diverse and
+          flavorful in the world. It blends Indigenous, Spanish,
+          African, and Asian influences into iconic dishes such as
+          ceviche, lomo saltado, and pollo a la brasa.
+        </p>
       </section>
 
-      {/* FOOTER */}
-      <footer className="pt-12 text-center text-sm text-muted-foreground">
-        <p>
-          © {new Date().getFullYear()} Monica Castillo · Queens College (CUNY)
-        </p>
-        <p className="mt-1">
-          Final Exam · Next.js · Tailwind CSS · shadcn/ui
-        </p>
-      </footer>
+      {/* VIDEO */}
+      <section className="w-full max-w-3xl aspect-video">
+        <iframe
+          className="w-full h-full rounded-xl shadow-lg"
+          src="https://www.youtube.com/watch?v=96sGMGpdfd8"
+          title="Why Peruvian Food is the Best"
+          allowFullScreen
+        />
+      </section>
 
     </main>
   )
